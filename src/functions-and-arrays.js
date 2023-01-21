@@ -51,9 +51,28 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() { }
 
+function sum(mixedArray) {
+  if (!mixedArray) return null;
+  let totalArray = 0;
+  for (let i = 0; i < mixedArray.length; i++) {
+    if (typeof mixedArray[i] === "string") {
+      totalArray += mixedArray[i].length;
+    } else if (typeof mixedArray[i] === "number") {
+      totalArray += mixedArray[i];
+    } else if (typeof mixedArray[i] === "boolean") {
+      if (mixedArray[i] === true) {
+        totalArray += 1;
+      } else {
+        totalArray += 0;
+      }
 
+    } else if (typeof mixedArray[i] === "object" || typeof mixedArray[i] === "array") {
+      return Error;
+    }
+  }
+  return totalArray;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
